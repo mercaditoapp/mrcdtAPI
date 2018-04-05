@@ -18,8 +18,16 @@ public class RecetaService {
 		return recetaRepo.findAll();
 	}
 
+	public Receta findOne(Integer idx) {
+		return recetaRepo.findOne(idx);
+	}
+
 	public Receta findByNombreUrl(String nombreUrl) {
 		return recetaRepo.findByNombreUrl(nombreUrl);
+	}
+
+	public void deleteByIdx(Integer idx) {
+		recetaRepo.delete(idx);
 	}
 
 	public Receta insert(Receta receta) {

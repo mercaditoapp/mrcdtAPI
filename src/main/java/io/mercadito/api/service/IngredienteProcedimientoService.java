@@ -22,6 +22,10 @@ public class IngredienteProcedimientoService {
 		return ingredientePreocedimientoRepo.findOne(idx);
 	}
 
+	public void deleteByIdx(Integer idx) {
+		ingredientePreocedimientoRepo.delete(idx);
+	}
+
 	public IngredienteProcedimiento insert(IngredienteProcedimiento ingredienteProcedimiento) {
 		return ingredientePreocedimientoRepo.save(ingredienteProcedimiento);
 	}

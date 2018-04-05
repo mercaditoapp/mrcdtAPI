@@ -135,10 +135,9 @@ public class Receta {
 
 	@Override
 	public String toString() {
-		return "Receta [idx=" + idx + ", nombre=" + nombre + ", nombreUrl=" + nombreUrl + ", descripcion=" + descripcion
-				+ ", imagen=" + imagen + ", precio=" + precio + ", porciones=" + porciones + ", tiempoPreparacion="
-				+ tiempoPreparacion + ", ingredientesReceta=" + ingredientesReceta + ", procedimientos="
-				+ procedimientos + "]";
+		return " >>> Receta [idx=" + idx + ", nombre=" + nombre + ", nombreUrl=" + nombreUrl + ", descripcion="
+				+ descripcion + ", imagen=" + imagen + ", precio=" + precio + ", porciones=" + porciones
+				+ ", tiempoPreparacion=" + tiempoPreparacion + "]";
 	}
 
 }

@@ -36,6 +36,11 @@ public class IngredienteProcedimientoController {
 		return ingredienteProcedimientoService.findOne(idx);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/deleteByIdx/{idx}")
+	public void deleteByIdx(@PathVariable Integer idx) {
+		ingredienteProcedimientoService.deleteByIdx(idx);
+	}
+
 	@RequestMapping(value = "/insert", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public IngredienteProcedimiento insert(@RequestBody IngredienteProcedimiento ingredienteProcedimiento) {
 		logger.info(ingredienteProcedimiento);

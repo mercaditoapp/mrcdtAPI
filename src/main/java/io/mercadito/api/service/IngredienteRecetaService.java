@@ -15,6 +15,7 @@ public class IngredienteRecetaService {
 	IngredienteRecetaRepository ingredienteRecetaRepo;
 
 	public List<IngredienteReceta> findAll() {
+
 		return ingredienteRecetaRepo.findAll();
 	}
 
@@ -25,4 +26,13 @@ public class IngredienteRecetaService {
 	public IngredienteReceta insert(IngredienteReceta ingredienteReceta) {
 		return ingredienteRecetaRepo.save(ingredienteReceta);
 	}
+
+	public void delete(IngredienteReceta ingredienteReceta) {
+		ingredienteRecetaRepo.delete(ingredienteReceta);
+	}
+
+	public void deleteByRecetaIdx(Integer idx) {
+		ingredienteRecetaRepo.deleteByRecetaIdx(idx);
+	}
+
 }

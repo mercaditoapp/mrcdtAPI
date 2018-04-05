@@ -36,6 +36,11 @@ public class ProcedimientoController {
 		return procedimientoService.findOne(idx);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/findByRecetaIdx/{idx}")
+	public List<Procedimiento> findByRecetaIdx(@PathVariable Integer idx) {
+		return procedimientoService.findByRecetaIdx(idx);
+	}
+
 	@RequestMapping(value = "/insert", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Procedimiento insert(@RequestBody Procedimiento procedimiento) {
 		logger.info(procedimiento);

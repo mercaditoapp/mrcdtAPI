@@ -18,6 +18,10 @@ public class ProcedimientoService {
 		return preocedimientoRepo.findAll();
 	}
 
+	public List<Procedimiento> findByRecetaIdx(Integer recetaIdx) {
+		return preocedimientoRepo.findByRecetaIdx(recetaIdx);
+	}
+
 	public Procedimiento findOne(Integer idx) {
 		return preocedimientoRepo.findOne(idx);
 	}
