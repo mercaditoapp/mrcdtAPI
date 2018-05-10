@@ -13,33 +13,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.mercadito.api.bean.Paso;
-import io.mercadito.api.service.PasoService;
+import io.mercadito.api.bean.PrecioBase;
+import io.mercadito.api.service.PrecioBaseService;
 
 @CrossOrigin(maxAge = 3600)
 @RestController
-@RequestMapping("oauth/paso")
-public class PasoController {
+@RequestMapping("oauth/precioBase")
+public class PrecioBaseController {
 
 	private Logger logger = LogManager.getLogger(getClass());
 
 	@Autowired
-	PasoService pasoService;
+	PrecioBaseService precioBaseService;
 
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
-	public List<Paso> findAll() {
-		return pasoService.findAll();
+	public List<PrecioBase> findAll() {
+		return precioBaseService.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/findOne/{idx}")
-	public Paso findOne(@PathVariable Integer idx) {
-		return pasoService.findOne(idx);
+	public PrecioBase findOne(@PathVariable Integer idx) {
+		return precioBaseService.findOne(idx);
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Paso insert(@RequestBody Paso paso) {
-		logger.info(paso);
+	public PrecioBase insert(@RequestBody PrecioBase precioBase) {
+		logger.info(precioBase);
 
-		return pasoService.insert(paso);
+		return precioBaseService.insert(precioBase);
 	}
 }

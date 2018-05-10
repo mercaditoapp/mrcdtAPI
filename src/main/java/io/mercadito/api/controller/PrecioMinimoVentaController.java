@@ -13,33 +13,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.mercadito.api.bean.Paso;
-import io.mercadito.api.service.PasoService;
+import io.mercadito.api.bean.PrecioMinimoVenta;
+import io.mercadito.api.service.PrecioMinimoVentaService;
 
 @CrossOrigin(maxAge = 3600)
 @RestController
-@RequestMapping("oauth/paso")
-public class PasoController {
+@RequestMapping("oauth/precioMinimoVenta")
+public class PrecioMinimoVentaController {
 
 	private Logger logger = LogManager.getLogger(getClass());
 
 	@Autowired
-	PasoService pasoService;
+	PrecioMinimoVentaService precioMinimoVentaService;
 
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
-	public List<Paso> findAll() {
-		return pasoService.findAll();
+	public List<PrecioMinimoVenta> findAll() {
+		return precioMinimoVentaService.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/findOne/{idx}")
-	public Paso findOne(@PathVariable Integer idx) {
-		return pasoService.findOne(idx);
+	public PrecioMinimoVenta findOne(@PathVariable Integer idx) {
+		return precioMinimoVentaService.findOne(idx);
 	}
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Paso insert(@RequestBody Paso paso) {
-		logger.info(paso);
+	public PrecioMinimoVenta insert(@RequestBody PrecioMinimoVenta precioMinimoVenta) {
+		logger.info(precioMinimoVenta);
 
-		return pasoService.insert(paso);
+		return precioMinimoVentaService.insert(precioMinimoVenta);
 	}
 }

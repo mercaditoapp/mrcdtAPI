@@ -1,10 +1,15 @@
 package io.mercadito.api.bean;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "PRODUCTO")
@@ -18,11 +23,16 @@ public class Producto {
 	@Column(name = "NOMBRE")
 	private String nombre;
 
-	@Column(name = "PRECIO")
-	private String precio;
-
 	@Column(name = "IMAGEN")
 	private String imagen;
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "producto")
+	private List<PrecioMinimoVenta> precioMinimoVenta;
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "producto")
+	private List<PrecioBase> precioBase;
 
 	public Producto() {
 
@@ -44,14 +54,6 @@ public class Producto {
 		this.nombre = nombre;
 	}
 
-	public String getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(String precio) {
-		this.precio = precio;
-	}
-
 	public String getImagen() {
 		return imagen;
 	}
@@ -60,9 +62,12 @@ public class Producto {
 		this.imagen = imagen;
 	}
 
-	@Override
-	public String toString() {
-		return " >>> Producto [idx=" + idx + ", nombre=" + nombre + ", precio=" + precio + ", imagen=" + imagen + "]";
+	public List<PrecioMinimoVenta> getPrecioMinimoVenta() {
+		return precioMinimoVenta;
+	}
+
+	public void setPrecioMinimoVenta(List<PrecioMinimoVenta> precioMinimoVenta) {
+		this.precioMinimoVenta = precioMinimoVenta;
 	}
 
 }
