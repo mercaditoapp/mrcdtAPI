@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "PRODUCTO_EQUIVALENCIA")
 public class ProductoEquivalencia {
@@ -17,6 +19,7 @@ public class ProductoEquivalencia {
 	@Column(name = "IDX")
 	private Integer idx;
 
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "PRODUCTO_IDX")
 	private Producto producto;

@@ -22,6 +22,10 @@ public class ProductoService {
 		return productoRepo.findByNombre(nombre);
 	}
 
+	public Producto findOne(Integer idx) {
+		return productoRepo.findOne(idx);
+	}
+
 	public Producto insert(Producto producto) {
 		return productoRepo.save(producto);
 	}

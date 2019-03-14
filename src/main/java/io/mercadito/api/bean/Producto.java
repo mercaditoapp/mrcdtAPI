@@ -34,6 +34,10 @@ public class Producto {
 	@OneToMany(mappedBy = "producto")
 	private List<PrecioBase> precioBase;
 
+	@JsonManagedReference
+	@OneToMany(mappedBy = "producto")
+	private List<ProductoEquivalencia> productoEquivalencia;
+
 	public Producto() {
 
 	}
@@ -68,6 +72,22 @@ public class Producto {
 
 	public void setPrecioMinimoVenta(List<PrecioMinimoVenta> precioMinimoVenta) {
 		this.precioMinimoVenta = precioMinimoVenta;
+	}
+
+	public List<PrecioBase> getPrecioBase() {
+		return precioBase;
+	}
+
+	public void setPrecioBase(List<PrecioBase> precioBase) {
+		this.precioBase = precioBase;
+	}
+
+	public List<ProductoEquivalencia> getProductoEquivalencia() {
+		return productoEquivalencia;
+	}
+
+	public void setProductoEquivalencia(List<ProductoEquivalencia> productoEquivalencia) {
+		this.productoEquivalencia = productoEquivalencia;
 	}
 
 }

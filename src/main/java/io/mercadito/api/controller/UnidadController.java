@@ -42,4 +42,9 @@ public class UnidadController {
 
 		return unidadService.insert(unidad);
 	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/findByProductoIdx/{idx}")
+	public List<Unidad> findByProductoIdx(@PathVariable Integer idx) {
+		return unidadService.findByProductoIdx(idx);
+	}
 }
